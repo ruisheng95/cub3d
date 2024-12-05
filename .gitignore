@@ -1,0 +1,7 @@
+*.o
+test.c
+test2.c
+*.a
+*.out
+.DS_Store
+cub3d

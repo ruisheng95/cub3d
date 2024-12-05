@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ethanlim <ethanlim@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rng <rng@student.42kl.edu.my>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/22 01:37:00 by ethanlim          #+#    #+#             */
-/*   Updated: 2024/07/08 18:19:05 by ethanlim         ###   ########.fr       */
+/*   Updated: 2024/12/05 16:45:33 by rng              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,4 +37,40 @@ char	*ft_strjoin_free(char *s1, char *s2)
 	dest[i] = '\0';
 	free(s1);
 	return (dest);
+}
+
+void	ft_bzero(void *ptr, size_t size)
+{
+	size_t	i;
+	char	*str;
+
+	if (size == 0)
+		return ;
+	i = 0;
+	str = ptr;
+	while (i < size)
+	{
+		str[i] = 0;
+		i++;
+	}
+}
+
+void	*ft_calloc(size_t num, size_t size)
+{
+	void	*str;
+
+	if (num == 0 || size == 0)
+	{
+		str = ft_strdup("");
+		if (!str)
+			return (NULL);
+		return (str);
+	}
+	if (num > 4294967295 / size)
+		return (NULL);
+	str = (void *)malloc(num * size);
+	if (!str)
+		return (NULL);
+	ft_bzero(str, num * size);
+	return (str);
 }

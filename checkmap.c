@@ -6,7 +6,7 @@
 /*   By: rng <rng@student.42kl.edu.my>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 14:52:43 by rng               #+#    #+#             */
-/*   Updated: 2024/12/05 15:12:56 by rng              ###   ########.fr       */
+/*   Updated: 2024/12/05 17:14:07 by rng              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,24 +89,20 @@ int	check_num_of_players(char **map)
 	return (count);
 }
 
-int	check_map(t_game *game)
+void	check_map(t_game *game)
 {
 	t_mapchecks	check;
 
 	check.map = copy_map(game->map);
 	if (!game->map)
-		return (1);
+		return (free_memory(game), print_n_exit("copy_map failed\n"));
 	if (check_num_of_players(game->map) != 1)
-	{
-		print_error("wrong num of players\n");
-		return (1);
-	}
+		return (free_2d_array(check.map), free_memory(game),
+			print_n_exit("wrong num of players\n"));
 	check_bounds(&check, locate_player_row(check.map),
 		locate_player_col(check.map));
 	if (check_bounds_helper(check.map) == 1)
-	{
-		print_error("map is NOT bounded by walls\n");
-		return (1);
-	}
-	return (0);
+		return (free_2d_array(check.map), free_memory(game),
+			print_n_exit("map is NOT bounded by walls\n"));
+	free_2d_array(check.map);
 }

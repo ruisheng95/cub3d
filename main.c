@@ -6,7 +6,7 @@
 /*   By: rng <rng@student.42kl.edu.my>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 14:25:12 by rng               #+#    #+#             */
-/*   Updated: 2024/12/05 15:24:11 by rng              ###   ########.fr       */
+/*   Updated: 2024/12/05 17:22:15 by rng              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,7 @@ int	main_helper(char **argv, t_game *game)
 	check_argv(argv);
 	init_game_data(game);
 	import_data(game, argv);
-	if (check_map(game) != 0)
-		ft_exit();
+	check_map(game);
 	init_player_struct(game, &game->player);
 	init_texs(game);
 	return (0);
@@ -26,8 +25,8 @@ int	main_helper(char **argv, t_game *game)
 
 int	close_window(t_game *game)
 {
-	mlx_destroy_window(game->mlx, game->window);
-	ft_exit();
+	free_memory(game);
+	exit(0);
 	return (0);
 }
 
@@ -36,7 +35,7 @@ int	main(int argc, char **argv)
 	t_game	game;
 
 	if (argc != 2)
-		return (print_error_and_exit("Syntax incorrect\n"), 1);
+		return (print_n_exit("Syntax incorrect\n"), 1);
 	if (main_helper(argv, &game) != 0)
 		return (1);
 	mlx_hook(game.window, KEY_PRESS, 1L << 0, handle_keypress, &game);

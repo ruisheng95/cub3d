@@ -6,7 +6,7 @@
 /*   By: rng <rng@student.42kl.edu.my>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 15:25:25 by rng               #+#    #+#             */
-/*   Updated: 2024/12/05 15:25:32 by rng              ###   ########.fr       */
+/*   Updated: 2024/12/05 17:23:55 by rng              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ int	handle_keypress(int keycode, t_game *game)
 		change_movement_status(game, keycode, 1);
 	else if (keycode == ESC)
 	{
-		free_2d_array(game->map);
-		ft_exit();
+		free_memory(game);
+		exit(0);
 	}
 	return (0);
 }

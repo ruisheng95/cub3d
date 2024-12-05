@@ -6,7 +6,7 @@
 /*   By: rng <rng@student.42kl.edu.my>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 14:10:02 by rng               #+#    #+#             */
-/*   Updated: 2024/12/05 15:49:44 by rng              ###   ########.fr       */
+/*   Updated: 2024/12/05 17:25:11 by rng              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -154,13 +154,12 @@ typedef struct s_mapchecks
 //utils
 void	print_2d_array(char **argv);
 void	free_2d_array(char **arr);
-int		print_error(char *str);
 int		get_map_height(char **map);
-void	ft_exit(void);
 double	rad_to_deg(double rad);
 double	deg_to_rad(double deg);
 double	normalise_angle(double degree);
-void	print_error_and_exit(char *str);
+void	print_n_exit(char *str);
+void	free_memory(t_game *game);
 
 //parsing1
 void	get_game_data(t_game *game);
@@ -171,7 +170,7 @@ char	**readfile(int fd);
 int		count_2d_arr(char **arr);
 
 //checkmap
-int		check_map(t_game *game);
+void	check_map(t_game *game);
 
 //img
 int		img_main_control_function(t_game *game);

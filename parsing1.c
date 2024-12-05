@@ -6,7 +6,7 @@
 /*   By: rng <rng@student.42kl.edu.my>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 14:37:08 by rng               #+#    #+#             */
-/*   Updated: 2024/12/05 14:52:21 by rng              ###   ########.fr       */
+/*   Updated: 2024/12/05 17:09:17 by rng              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,7 @@ int	get_textures_2(t_game *game, int i)
 	else
 		return (-2);
 	i++;
+	free_2d_array(temp);
 	return (get_textures_2_norminette(game, i));
 }
 
@@ -105,16 +106,19 @@ void	get_game_data(t_game *game)
 		i++;
 	i = get_textures_1(game, i - 1);
 	if (i == -2)
-		print_error_and_exit("smth wrong about textures paths in .cub file\n");
+		return (free_memory(game),
+			print_n_exit("smth wrong about textures paths in .cub file\n"));
 	while (game->filedata[i] == NULL || (game->filedata[i]
 			&& (game->filedata[i][0] == '\n' || game->filedata[i][0] == '\0')))
 		i++;
 	i = get_textures_2(game, i);
 	if (i == -2)
-		print_error_and_exit("smth wrong on floor or ceiling colors\n");
+		return (free_memory(game),
+			print_n_exit("smth wrong on floor or ceiling colors\n"));
 	while (game->filedata[i] == NULL || (game->filedata[i]
 			&& (game->filedata[i][0] == '\n' || game->filedata[i][0] == '\0')))
 		i++;
 	get_map(game, i);
 	free_2d_array(game->filedata);
+	game->filedata = 0;
 }

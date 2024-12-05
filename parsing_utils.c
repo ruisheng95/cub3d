@@ -6,7 +6,7 @@
 /*   By: rng <rng@student.42kl.edu.my>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 14:34:24 by rng               #+#    #+#             */
-/*   Updated: 2024/12/05 14:34:39 by rng              ###   ########.fr       */
+/*   Updated: 2024/12/05 17:38:00 by rng              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,8 @@ char	**readfile(int fd)
 	if (res[0] == NULL)
 	{
 		ft_printf("Error: file contains nth bruh\n");
-		free(res);
-		exit(1);
+		free_2d_array(res);
+		return (0);
 	}
 	res[j] = NULL;
 	return (res);

@@ -58,6 +58,6 @@ test: $(OBJ) $(LIB)
 re : fclean all
 
 $(DEP_MINILIBX):
-	make -C $(MINILIBX_DIR)
+	@$(MAKE) -C $(MINILIBX_DIR)
 
 .PHONY: all clean fclean re leak

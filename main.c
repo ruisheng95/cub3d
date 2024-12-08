@@ -6,7 +6,7 @@
 /*   By: rng <rng@student.42kl.edu.my>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 14:25:12 by rng               #+#    #+#             */
-/*   Updated: 2024/12/05 17:22:15 by rng              ###   ########.fr       */
+/*   Updated: 2024/12/08 10:40:21 by rng              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	main(int argc, char **argv)
 	t_game	game;
 
 	if (argc != 2)
-		return (print_n_exit("Syntax incorrect\n"), 1);
+		return (print_n_exit("Error: Syntax incorrect\n"), 1);
 	if (main_helper(argv, &game) != 0)
 		return (1);
 	mlx_hook(game.window, KEY_PRESS, 1L << 0, handle_keypress, &game);

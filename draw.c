@@ -6,7 +6,7 @@
 /*   By: rng <rng@student.42kl.edu.my>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 15:32:14 by rng               #+#    #+#             */
-/*   Updated: 2024/12/05 15:36:26 by rng              ###   ########.fr       */
+/*   Updated: 2024/12/08 15:34:55 by rng              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ void	actually_drawing(t_game *game, int x)
 // see which texture to draw
 // line 1: if hit vertical side (east or west)
 // line 3: then see if ray_dir_x < 0, means ray travelling to the left,
-//		   also means east direction
+//		   also means west direction
 // line 8: if hit horizontal side (north or south)
 // line 10: then see if ray_dir_y < 0, that means travelling up (in this 
 // 			game y decrease as it goes up), so north dir
@@ -86,9 +86,9 @@ void	get_tex_to_draw(t_game *game)
 	if (game->ray.hori_side_hit == 0)
 	{
 		if (game->ray.ray_dir_x < 0)
-			game->draw.tex = game->e_tex;
-		else
 			game->draw.tex = game->w_tex;
+		else
+			game->draw.tex = game->e_tex;
 	}
 	else
 	{

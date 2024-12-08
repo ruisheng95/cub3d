@@ -6,7 +6,7 @@
 /*   By: rng <rng@student.42kl.edu.my>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 14:10:02 by rng               #+#    #+#             */
-/*   Updated: 2024/12/05 17:25:11 by rng              ###   ########.fr       */
+/*   Updated: 2024/12/08 10:51:37 by rng              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@
 # define SKEY 115
 # define DKEY 100
 # define WIN_HEIGHT 900
-# define WIN_WIDTH 900
+# define WIN_WIDTH 1600
 # define PI 3.141592653589793238462643383279502884197
 # define TILE_SIZE 1 // not working one lol dont change (i lazy fix dy)
 # define MOV_SPEED 0.065
@@ -223,5 +223,6 @@ void	init_game_data(t_game *game);
 void	init_texs(t_game *game);
 void	check_argv(char **argv);
 void	import_data(t_game *game, char **argv);
+void	init_texs_mlx_get_data_addr(t_game *game);
 
 #endif

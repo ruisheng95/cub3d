@@ -1,13 +1,13 @@
 SRCS = \
 main.c parsing1.c parsing_utils.c utils.c checkmap.c background.c \
 player1.c print.c raycast.c movement.c draw.c handle.c player2.c handle_fts.c \
-utils2.c init.c
+utils2.c init.c init2.c
 
 TESTIMG = testimg.c
 
 OBJ = $(SRCS:.c=.o)
 
-NAME = cub3d
+NAME = cub3D
 
 CC = gcc
 
@@ -31,7 +31,7 @@ endif
 
 all : $(NAME)
 
-$(NAME): $(OBJ) $(LIB) $(DEP_MINILIBX) Makefile
+$(NAME): $(OBJ) $(LIB) $(DEP_MINILIBX) Makefile cub3d.h
 	@$(CC) $(OBJ) $(MINILIBX_FLAG) -o $(NAME) $(LIB)
 
 %.o: %.c

@@ -6,7 +6,7 @@
 /*   By: rng <rng@student.42kl.edu.my>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 14:10:02 by rng               #+#    #+#             */
-/*   Updated: 2024/12/08 10:51:37 by rng              ###   ########.fr       */
+/*   Updated: 2024/12/12 09:58:29 by rng              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@
 # define ROT_SPEED 3
 # define KEY_PRESS 2
 # define KEY_RELEASE 3
+# define FRAME_DELAY 1000
 
 //Structs
 typedef struct s_ray
@@ -133,6 +134,7 @@ typedef struct s_game
 	t_ray		ray;
 	t_draw		draw;
 	t_movement	movement;
+	int			frame_delay;
 
 	char		**filedata;
 	char		**map;

@@ -6,7 +6,7 @@
 /*   By: rng <rng@student.42kl.edu.my>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 15:22:14 by rng               #+#    #+#             */
-/*   Updated: 2024/12/08 10:51:52 by rng              ###   ########.fr       */
+/*   Updated: 2024/12/12 09:35:42 by rng              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ static void	init_game_data_2(t_game *game)
 	game->player.plane_y = 0;
 	game->player.pos_x = 0;
 	game->player.pos_y = 0;
+	game->frame_delay = 0;
 	game->movement.back = false;
 	game->movement.front = false;
 	game->movement.left = false;

@@ -6,7 +6,7 @@
 /*   By: rng <rng@student.42kl.edu.my>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 14:37:08 by rng               #+#    #+#             */
-/*   Updated: 2024/12/08 10:39:37 by rng              ###   ########.fr       */
+/*   Updated: 2024/12/12 09:55:45 by rng              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,14 +49,21 @@ int	get_textures_2_norminette(t_game *game, int i)
 	{
 		temp = ft_split(game->filedata[i] + 2, ',');
 		if (count_2d_arr(temp) != 3)
-			return (-2);
+			return (free_2d_array(temp), -2);
 		game->textures.ceilingcolor[0] = ft_atoi(temp[0]);
 		game->textures.ceilingcolor[1] = ft_atoi(temp[1]);
 		game->textures.ceilingcolor[2] = ft_atoi(temp[2]);
+		free_2d_array(temp);
+		if (game->textures.ceilingcolor[0] < 0
+			|| game->textures.ceilingcolor[0] > 255
+			|| game->textures.ceilingcolor[1] < 0
+			|| game->textures.ceilingcolor[1] > 255
+			|| game->textures.ceilingcolor[2] < 0
+			|| game->textures.ceilingcolor[2] > 255)
+			return (-2);
 	}
 	else
 		return (-2);
-	free_2d_array(temp);
 	return (i + 1);
 }
 
@@ -68,15 +75,22 @@ int	get_textures_2(t_game *game, int i)
 	{
 		temp = ft_split(game->filedata[i] + 2, ',');
 		if (count_2d_arr(temp) != 3)
-			return (-2);
+			return (free_2d_array(temp), -2);
 		game->textures.floorcolor[0] = ft_atoi(temp[0]);
 		game->textures.floorcolor[1] = ft_atoi(temp[1]);
 		game->textures.floorcolor[2] = ft_atoi(temp[2]);
+		free_2d_array(temp);
+		if (game->textures.floorcolor[0] < 0
+			|| game->textures.floorcolor[0] > 255
+			|| game->textures.floorcolor[1] < 0
+			|| game->textures.floorcolor[1] > 255
+			|| game->textures.floorcolor[2] < 0
+			|| game->textures.floorcolor[2] > 255)
+			return (-2);
 	}
 	else
 		return (-2);
 	i++;
-	free_2d_array(temp);
 	return (get_textures_2_norminette(game, i));
 }
 

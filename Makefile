@@ -34,7 +34,7 @@ all : $(NAME)
 $(NAME): $(OBJ) $(LIB) $(DEP_MINILIBX) Makefile cub3d.h
 	@$(CC) $(OBJ) $(MINILIBX_FLAG) -o $(NAME) $(LIB)
 
-%.o: %.c
+%.o: %.c cub3d.h
 	@$(CC) $(CFLAGS) -c $< -o $(<:.c=.o)
 
 $(LIB) : 

@@ -6,7 +6,7 @@
 /*   By: rng <rng@student.42kl.edu.my>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 15:25:25 by rng               #+#    #+#             */
-/*   Updated: 2024/12/05 17:23:55 by rng              ###   ########.fr       */
+/*   Updated: 2024/12/12 09:39:42 by rng              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,12 @@ int	handle_keyrelease(int keycode, t_game *game)
 
 int	loop_handle(t_game *game)
 {
-	move_player(game);
-	rotate_player(game);
-	render_screen(game);
+	if (game->frame_delay++ == FRAME_DELAY)
+	{
+		move_player(game);
+		rotate_player(game);
+		render_screen(game);
+		game->frame_delay = 0;
+	}
 	return (1);
 }

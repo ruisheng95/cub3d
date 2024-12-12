@@ -6,7 +6,7 @@
 /*   By: rng <rng@student.42kl.edu.my>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 14:52:43 by rng               #+#    #+#             */
-/*   Updated: 2024/12/08 10:38:54 by rng              ###   ########.fr       */
+/*   Updated: 2024/12/12 09:32:03 by rng              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,8 @@ int	check_bounds_helper(char **map)
 	while (i < get_map_height(map))
 	{
 		j = 0;
+		if (ft_strlen(map[i]) == 1)
+			return (1);
 		while (j < ft_strlen(map[i]))
 		{
 			if (i == 0 && map[i][j] == 'V')
